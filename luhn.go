@@ -41,7 +41,7 @@ func main() {
 	}()
 
 	if len(os.Args) != 2 {
-		os.Stderr.Write([]byte("Usage `luhn <input>`"))
+		os.Stderr.Write([]byte("Usage           : ./luhn <input>\nValid Example   : ./luhn 123; echo \"$?\"\nInvalid Example : ./luhn 12; echo \"$?\"\n"))
 		return
 	}
 
