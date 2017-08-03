@@ -4,6 +4,8 @@ import (
 	"os"
 )
 
+var noop = []byte{}
+
 var m = [...]int{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 6, 8, 1, 3, 5, 7, 9}
 
 func Luhn(cc string) (ok bool) {
@@ -12,7 +14,7 @@ func Luhn(cc string) (ok bool) {
 		x int = 0
 	)
 
-	for i > 0 {
+	for i >= 0 {
 		switch i & 1 {
 		case 1:
 			x += int(cc[i]) - 48
@@ -28,7 +30,7 @@ func Luhn(cc string) (ok bool) {
 func main() {
 	defer func() {
 		if recover() != nil {
-			os.Stderr.Write([]byte("no with panic\n"))
+			os.Stderr.Write(noop)
 		}
 	}()
 
@@ -38,9 +40,9 @@ func main() {
 	}
 
 	if !Luhn(os.Args[1]) {
-		os.Stdout.Write([]byte("no checksum\n"))
+		os.Stdout.Write(noop)
 		return
 	}
 
-	os.Stdout.Write([]byte("yes\n"))
+	os.Stdout.Write(noop)
 }
