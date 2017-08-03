@@ -3,7 +3,7 @@ all: build test benchmark
 
 .PHONY: build
 build:
-	@go build luhn.go
+	@go build luhn.go main.go
 
 .PHONY: test
 test:

@@ -1,7 +1,5 @@
 package main
 
-import "os"
-
 var m = [...]int{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 6, 8, 1, 3, 5, 7, 9}
 
 /**
@@ -31,24 +29,4 @@ func Luhn(cc string) (ok bool) {
 
 	// int32 mod 10
 	return (x - (x/10)*10) == 0
-}
-
-func main() {
-	defer func() {
-		if recover() != nil {
-			os.Exit(1)
-		}
-	}()
-
-	if len(os.Args) != 2 {
-		os.Stderr.Write([]byte("Usage           : ./luhn <input>\nValid Example   : ./luhn 123; echo \"$?\"\nInvalid Example : ./luhn 12; echo \"$?\"\n"))
-		return
-	}
-
-	if !Luhn(os.Args[1]) {
-		os.Exit(1)
-		return
-	}
-
-	os.Exit(0)
 }
