@@ -18,15 +18,16 @@ func Luhn(cc string) (ok bool) {
 	for i >= 0 {
 		switch i & 1 {
 		case 1:
-			// [0 => 0]
+			// rune(x) => atoi(x)
 			x += int(cc[i]) - 48
 		default:
-			// lookup [0..4 => x<<1], [5..8 => (x<<1)+1]
+			// rune(x) => atoi(y:0..4) => y * 2
+			//         => atoi(y:5..8) => y * 2 + 1
 			x += m[int(cc[i])]
 		}
 		i--
 	}
 
-	// int32 mod 10
+	// mod10
 	return (x - (x/10)*10) == 0
 }
