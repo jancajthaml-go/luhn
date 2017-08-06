@@ -22,12 +22,10 @@ scan:
 	default:
 		x += m[int(cc[i])]
 	}
-	if i == 0 {
-		goto eos
-	}
 	i--
-	goto scan
+	if i > 0 {
+		goto scan
+	}
 
-eos:
 	return (x - (x/10)*10) == 0
 }
