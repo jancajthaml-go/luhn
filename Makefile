@@ -1,5 +1,5 @@
 .PHONY: all
-all: build test benchmark
+all: build benchmark
 
 .PHONY: build
 build:
