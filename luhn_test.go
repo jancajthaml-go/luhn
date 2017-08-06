@@ -8,6 +8,14 @@ func BenchmarkLuhn(b *testing.B) {
 	}
 }
 
+func BenchmarkLuhnParallel(b *testing.B) {
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			Luhn("49927398716")
+		}
+	})
+}
+
 func TestLunh(t *testing.T) {
 	if !Luhn("001230147647009683210024") {
 		t.Errorf("Checksum failed for valid unput")
