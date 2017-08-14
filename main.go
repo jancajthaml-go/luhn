@@ -14,7 +14,7 @@ func main() {
 		return
 	}
 
-	if !Luhn(os.Args[1]) {
+	if LuhnDigit(os.Args[1]) != 0 {
 		os.Exit(1)
 		return
 	}
