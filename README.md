@@ -11,9 +11,11 @@ It is not intended to be a cryptographically secure hash function. It is mostly 
 ```
 import "github.com/jancajthaml-go/luhn"
 
-luhn.Validate("00123014764700968325")
+ok := luhn.Validate("00123014764700968325")
 
 digit, error := luhn.Digit("x")
+
+signed := luhn.Generate("1")
 ```
 
 ### Performance ###
