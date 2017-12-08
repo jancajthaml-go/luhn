@@ -28,9 +28,7 @@ BenchmarkLuhnLargeParallel-4    200000000         7.76 ns/op
 
 test on your own by running `make benchmark`
 
-
 ### Resources ###
 
 * [Credit Card Validation - Check Digits](https://web.eecs.umich.edu/~bartlett/credit_card_number.html)
 * [Wikipedia - Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm)
-
