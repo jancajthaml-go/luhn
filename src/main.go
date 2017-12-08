@@ -10,14 +10,19 @@ func main() {
 	}()
 
 	if len(os.Args) != 2 {
-		os.Stderr.Write([]byte("Usage           : ./luhn <input>\nValid Example   : ./luhn 123; echo \"$?\"\nInvalid Example : ./luhn 12; echo \"$?\"\n"))
+		os.Stderr.Write([]byte("Usage : ./luhn <input>\n"))
 		return
 	}
 
-	if !Validate(os.Args[1]) {
+	result, err := Generate(os.Args[1])
+
+	if err != nil {
+		os.Stdout.Write([]byte("Invalid input"))
 		os.Exit(1)
 		return
 	}
+
+	os.Stdout.Write([]byte(result))
 
 	os.Exit(0)
 }

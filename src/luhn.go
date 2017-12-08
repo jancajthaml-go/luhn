@@ -4,7 +4,9 @@
 //
 package main
 
-import "errors"
+import (
+	"errors"
+)
 
 var m = [10]uint{0, 2, 4, 6, 8, 1, 3, 5, 7, 9}
 
@@ -18,7 +20,11 @@ func Digit(cc string) (int, error) {
 
 loop:
 	if i < 0 {
-		return int(x - (x/10)*10), nil
+		x = (10 - (x - (x/10)*10))
+		if x == 10 {
+			return 0, nil
+		}
+		return int(x), nil
 	}
 
 	d = uint(cc[i]) - 48
@@ -40,4 +46,15 @@ loop:
 func Validate(cc string) (ok bool) {
 	digit, err := Digit(cc)
 	return err == nil && digit == 0
+}
+
+// Generate signs string with luhn digit
+func Generate(cc string) (string, error) {
+	digit, err := Digit(cc)
+
+	if err != nil {
+		return cc, err
+	}
+
+	return cc + string(digit+48), nil
 }
