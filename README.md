@@ -19,10 +19,10 @@ digit, error := luhn.Digit("x")
 ### Performance ###
 
 ```
-BenchmarkLuhnSmall-4            500000000         3.13 ns/op
-BenchmarkLuhnLarge-4            100000000         16.6 ns/op
-BenchmarkLuhnSmallParallel-4    1000000000        2.05 ns/op
-BenchmarkLuhnLargeParallel-4    200000000         7.76 ns/op
+BenchmarkLuhnSmall-4            200000000         7.97 ns/op
+BenchmarkLuhnLarge-4            50000000          32.1 ns/op
+BenchmarkLuhnSmallParallel-4    500000000         4.12 ns/op
+BenchmarkLuhnLargeParallel-4    100000000         15.4 ns/op
 ```
 
 test on your own by running `make benchmark`
