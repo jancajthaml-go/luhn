@@ -15,19 +15,19 @@ ok := luhn.Validate("00123014764700968325")
 
 digit, error := luhn.Digit("x")
 
-signed := luhn.Generate("1")
+checksum := luhn.Generate("1")
 ```
 
 ### Performance ###
 
 ```
-BenchmarkLuhnSmall-4            200000000         7.97 ns/op
-BenchmarkLuhnLarge-4            50000000          32.1 ns/op
-BenchmarkLuhnSmallParallel-4    500000000         4.12 ns/op
-BenchmarkLuhnLargeParallel-4    100000000         15.4 ns/op
+BenchmarkLuhnSmall-4          200000000  13.9 ns/op  0 B/op  0 allocs/op
+BenchmarkLuhnLarge-4          50000000   31.8 ns/op  0 B/op  0 allocs/op
+BenchmarkLuhnSmallParallel-4  300000000  4.06 ns/op  0 B/op  0 allocs/op
+BenchmarkLuhnLargeParallel-4  100000000  15.0 ns/op  0 B/op  0 allocs/op
 ```
 
-test on your own by running `make benchmark`
+verify your performance by running `make benchmark`
 
 ### Resources ###
 
