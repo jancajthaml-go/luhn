@@ -1,4 +1,4 @@
-## Performant implementation of Luhn check-digit mod10 algorithm
+## luhn check-digit mod10 algorithm
 
 [![Go Report Card](https://goreportcard.com/badge/jancajthaml-go/luhn)](https://goreportcard.com/report/jancajthaml-go/luhn)
 
