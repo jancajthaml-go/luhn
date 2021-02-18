@@ -4,14 +4,13 @@
 //
 package luhn
 
-import (
-	"fmt"
-)
+import "fmt"
 
 var m = [10]uint{0, 2, 4, 6, 8, 1, 3, 5, 7, 9}
+var zero = uint('0')
 
 // Digit returns luhn digit for given numeric string
-func Digit(cc string) (int, error) {
+func Digit(cc string) (uint, error) {
 	var (
 		i int = len(cc) - 1
 		x uint
@@ -24,14 +23,12 @@ loop:
 		if x == 10 {
 			return 0, nil
 		}
-		return int(x), nil
+		return x, nil
 	}
-
-	d = uint(cc[i]) - 48
+	d = uint(cc[i]) - zero
 	if d > 9 {
 		return 1, fmt.Errorf("string must contain only digits")
 	}
-
 	switch i & 1 {
 	case 1:
 		x += d
@@ -54,6 +51,5 @@ func Generate(cc string) (string, error) {
 	if err != nil {
 		return cc, err
 	}
-
-	return cc + string(digit+48), nil
+	return cc + string(rune(digit+zero)), nil
 }
